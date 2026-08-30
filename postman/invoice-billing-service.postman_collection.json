@@ -1,0 +1,178 @@
+{
+  "info" : {
+    "name" : "invoice-billing-service Postman Collection",
+    "description" : "Microservice for generating invoices, recording payments, and chasing overdue balances.\nSupports draft and issued invoices, credit notes, and tax breakdowns.\n\n\nOpenAPI version: 1.0.0",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth" : {
+    "type" : "bearer",
+    "bearer" : [ {
+      "key" : "token",
+      "value" : "{{accessToken}}",
+      "type" : "string"
+    } ]
+  },
+  "variable" : [ {
+    "key" : "baseUrl",
+    "value" : "https://api.example.com/v1",
+    "type" : "string",
+    "description" : "Override with the base URL of the deployed Apigee proxy."
+  }, {
+    "key" : "accessToken",
+    "value" : "",
+    "type" : "string"
+  }, {
+    "key" : "customerId",
+    "value" : "",
+    "type" : "string",
+    "description" : "Filter by the billed customer"
+  }, {
+    "key" : "status",
+    "value" : "",
+    "type" : "string",
+    "description" : "Filter by invoice status"
+  }, {
+    "key" : "page",
+    "value" : "",
+    "type" : "string",
+    "description" : "Page number (starts at 1)"
+  }, {
+    "key" : "size",
+    "value" : "",
+    "type" : "string",
+    "description" : "Number of items per page"
+  }, {
+    "key" : "invoiceId",
+    "value" : "",
+    "type" : "string",
+    "description" : "Unique invoice identifier (UUID)"
+  } ],
+  "item" : [ {
+    "name" : "List all invoices",
+    "request" : {
+      "method" : "GET",
+      "description" : "List all invoices\n\nResponses:\n- 200: Successful response\n- 400: Invalid request - the server could not understand the payload or parameters.\n- 500: Internal server error - something went wrong on the server side.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/invoices?customerId={{customerId}}&status={{status}}&page={{page}}&size={{size}}",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "invoices" ],
+        "query" : [ {
+          "key" : "customerId",
+          "value" : "{{customerId}}",
+          "disabled" : true,
+          "description" : "Filter by the billed customer"
+        }, {
+          "key" : "status",
+          "value" : "{{status}}",
+          "disabled" : true,
+          "description" : "Filter by invoice status"
+        }, {
+          "key" : "page",
+          "value" : "{{page}}",
+          "disabled" : true,
+          "description" : "Page number (starts at 1)"
+        }, {
+          "key" : "size",
+          "value" : "{{size}}",
+          "disabled" : true,
+          "description" : "Number of items per page"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Create a new invoice",
+    "request" : {
+      "method" : "POST",
+      "description" : "Create a new invoice\n\nResponses:\n- 201: Invoice created successfully\n- 400: Invalid request - the server could not understand the payload or parameters.\n- 409: An invoice already exists for this billing period\n- 500: Internal server error - something went wrong on the server side.",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/invoices",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "invoices" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Get an invoice by ID",
+    "request" : {
+      "method" : "GET",
+      "description" : "Get an invoice by ID\n\nResponses:\n- 200: Invoice found\n- 404: Invoice not found\n- 500: Internal server error - something went wrong on the server side.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/invoices/:invoiceId",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "invoices", ":invoiceId" ],
+        "variable" : [ {
+          "key" : "invoiceId",
+          "value" : "{{invoiceId}}",
+          "description" : "Unique invoice identifier (UUID)"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Update an existing invoice",
+    "request" : {
+      "method" : "PUT",
+      "description" : "Update an existing invoice\n\nResponses:\n- 200: Invoice updated successfully\n- 400: Invalid request - the server could not understand the payload or parameters.\n- 404: The requested resource was not found.\n- 500: Internal server error - something went wrong on the server side.",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/invoices/:invoiceId",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "invoices", ":invoiceId" ],
+        "variable" : [ {
+          "key" : "invoiceId",
+          "value" : "{{invoiceId}}",
+          "description" : "Unique invoice identifier (UUID)"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Void an invoice",
+    "request" : {
+      "method" : "DELETE",
+      "description" : "Void an invoice\n\nResponses:\n- 204: Invoice voided successfully (no content returned)\n- 404: The requested resource was not found.\n- 500: Internal server error - something went wrong on the server side.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/invoices/:invoiceId",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "invoices", ":invoiceId" ],
+        "variable" : [ {
+          "key" : "invoiceId",
+          "value" : "{{invoiceId}}",
+          "description" : "Unique invoice identifier (UUID)"
+        } ]
+      }
+    },
+    "response" : [ ]
+  } ]
+}

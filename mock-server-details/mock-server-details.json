@@ -1,0 +1,110 @@
+{
+  "microserviceId" : "6a93e1fbcc3ece0addc83110",
+  "mocks" : [ {
+    "id" : "8f235c82-ed94-4554-8642-88748d5f40a4",
+    "microserviceId" : "6a93e1fbcc3ece0addc83110",
+    "specMetadataId" : "6a93e21a7d48fb7066a3588e",
+    "apiSpecName" : "Invoice Billing Service",
+    "name" : "mock-invoice-billing-service",
+    "mockServiceName" : "mock-invoice-billing-service",
+    "mockServerUrl" : "https://forgesphere.probestack.io/mock-api/v1/api/mocks/mock-4fd15288",
+    "responseLatencyMs" : 0,
+    "mockUrl" : "mock-4fd15288",
+    "isPrivate" : true,
+    "delayMs" : 0,
+    "requestCount" : 0,
+    "createdAt" : "2026-08-30T07:56:20.925Z",
+    "updatedAt" : "2026-08-30T07:56:20.938Z",
+    "endpoints" : [ {
+      "id" : "aa8766c5-31e4-4d36-8c6f-f89b2f1b85e9",
+      "mockId" : "8f235c82-ed94-4554-8642-88748d5f40a4",
+      "path" : "/invoices",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"page\":1,\"size\":20,\"totalElements\":317,\"totalPages\":16,\"content\":[{\"id\":\"i1n2v3c4\",\"invoiceNumber\":\"INV-2026-00317\",\"customerId\":\"cust-88213\",\"status\":\"ISSUED\",\"currency\":\"USD\",\"subtotal\":1200.0,\"taxAmount\":216.0,\"totalAmount\":1416.0,\"amountPaid\":0,\"lineItems\":[{\"description\":\"Platform subscription - August 2026\",\"quantity\":12,\"unitPrice\":100.0,\"taxRatePercent\":18.0}],\"issuedAt\":\"2026-08-01T00:00:00.000+00:00\",\"dueDate\":\"2026-08-31T00:00:00.000+00:00\",\"createdAt\":\"2026-08-01T09:00:00Z\"}]}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-08-30T07:56:20.987Z",
+      "updatedAt" : "2026-08-30T07:56:20.989Z"
+    }, {
+      "id" : "5a1844c2-af01-4744-966b-758318f42a47",
+      "mockId" : "8f235c82-ed94-4554-8642-88748d5f40a4",
+      "path" : "/invoices",
+      "method" : "POST",
+      "responseStatus" : 201,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"i1n2v3c4\",\"invoiceNumber\":\"INV-2026-00317\",\"customerId\":\"cust-88213\",\"status\":\"ISSUED\",\"currency\":\"USD\",\"subtotal\":1200.0,\"taxAmount\":216.0,\"totalAmount\":1416.0,\"amountPaid\":0,\"lineItems\":[{\"description\":\"Platform subscription - August 2026\",\"quantity\":12,\"unitPrice\":100.0,\"taxRatePercent\":18.0}],\"issuedAt\":\"2026-08-01T00:00:00.000+00:00\",\"dueDate\":\"2026-08-31T00:00:00.000+00:00\",\"createdAt\":\"2026-08-01T09:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"customerId\":\"cust-88213\",\"lineItems\":[{\"description\":\"Platform subscription - August 2026\",\"quantity\":12,\"unitPrice\":100.0,\"taxRatePercent\":18.0}],\"currency\":\"USD\",\"dueDate\":\"2026-08-31T00:00:00.000+00:00\",\"purchaseOrderRef\":\"PO-4471\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-08-30T07:56:21Z",
+      "updatedAt" : "2026-08-30T07:56:21.001Z"
+    }, {
+      "id" : "8b9b258a-cf98-403c-ba19-d747eb364979",
+      "mockId" : "8f235c82-ed94-4554-8642-88748d5f40a4",
+      "path" : "/invoices/{invoiceId}",
+      "method" : "DELETE",
+      "responseStatus" : 204,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-08-30T07:56:21.031Z",
+      "updatedAt" : "2026-08-30T07:56:21.033Z"
+    }, {
+      "id" : "581a74a9-df64-40fe-a6b6-ce0bc93c984d",
+      "mockId" : "8f235c82-ed94-4554-8642-88748d5f40a4",
+      "path" : "/invoices/{invoiceId}",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"i1n2v3c4\",\"invoiceNumber\":\"INV-2026-00317\",\"customerId\":\"cust-88213\",\"status\":\"ISSUED\",\"currency\":\"USD\",\"subtotal\":1200.0,\"taxAmount\":216.0,\"totalAmount\":1416.0,\"amountPaid\":0,\"lineItems\":[{\"description\":\"Platform subscription - August 2026\",\"quantity\":12,\"unitPrice\":100.0,\"taxRatePercent\":18.0}],\"issuedAt\":\"2026-08-01T00:00:00.000+00:00\",\"dueDate\":\"2026-08-31T00:00:00.000+00:00\",\"createdAt\":\"2026-08-01T09:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-08-30T07:56:21.011Z",
+      "updatedAt" : "2026-08-30T07:56:21.011Z"
+    }, {
+      "id" : "9f4f549a-0d1b-4da6-8856-8a375becfd82",
+      "mockId" : "8f235c82-ed94-4554-8642-88748d5f40a4",
+      "path" : "/invoices/{invoiceId}",
+      "method" : "PUT",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"i1n2v3c4\",\"invoiceNumber\":\"INV-2026-00317\",\"customerId\":\"cust-88213\",\"status\":\"ISSUED\",\"currency\":\"USD\",\"subtotal\":1200.0,\"taxAmount\":216.0,\"totalAmount\":1416.0,\"amountPaid\":0,\"lineItems\":[{\"description\":\"Platform subscription - August 2026\",\"quantity\":12,\"unitPrice\":100.0,\"taxRatePercent\":18.0}],\"issuedAt\":\"2026-08-01T00:00:00.000+00:00\",\"dueDate\":\"2026-08-31T00:00:00.000+00:00\",\"createdAt\":\"2026-08-01T09:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"dueDate\":\"2026-09-15T00:00:00.000+00:00\",\"purchaseOrderRef\":\"PO-4488\",\"lineItems\":[{\"description\":\"Platform subscription - August 2026\",\"quantity\":12,\"unitPrice\":100.0,\"taxRatePercent\":18.0}]}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-08-30T07:56:21.020Z",
+      "updatedAt" : "2026-08-30T07:56:21.020Z"
+    } ]
+  } ]
+}
